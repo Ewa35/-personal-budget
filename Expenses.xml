@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Expenses>
-<user1>
-<Expense1>1|1|20211128|zakupy|20.300|</Expense1>
-<Expense2>1|2|20200301|paliwo|467.000|</Expense2>
-</user1>
+<Expense>
+<expenseId>1</expenseId>
+<userId>1</userId>
+<date>20220103</date>
+<item>r</item>
+<amount>4000.000</amount>
+</Expense>
 </Expenses>

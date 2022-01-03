@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Incomes>
-<user1>
-<Income1>1|1|20211128|wyplata|2000.000|</Income1>
-<Income2>1|2|20211120|zwrot|30.200|</Income2>
-</user1>
+<Income>
+<incomeId>1</incomeId>
+<userId>1</userId>
+<date>20220103</date>
+<item>eee</item>
+<amount>20.000</amount>
+</Income>
+<Income>
+<incomeId>2</incomeId>
+<userId>1</userId>
+<date>20211214</date>
+<item>ff</item>
+<amount>500.000</amount>
+</Income>
 </Incomes>

@@ -126,8 +126,9 @@ double ExpenseManager  :: balanceForThePreviousMonth(int integerFirstDayOfTheMon
             numberOfHits++;
         }
     }
-    if (numberOfHits==0)
+    if (numberOfHits==0){
         cout<<" Brak wydatkow w poprzednim miesiacu"<<endl;
+    }
     else {
         cout<<endl<<"Calkowita watrosc wydatkow w poprzednim miesiacu:   "<< totalExpense<<endl;
     }

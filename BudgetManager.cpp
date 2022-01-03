@@ -48,7 +48,6 @@ void  BudgetManager::balanceOfThePreviousMonth() {
     sumInocmes=incomeManager.balanceForThePreviousMonth(integerFirstDayOfTheMonth, integerLastDayOfTheMonth);
     cout<<endl<<"WYDATKI POPRZEDNIEGO MIESIACA: "<<endl;
     sumExpenses=expenseManager.balanceForThePreviousMonth(integerFirstDayOfTheMonth, integerLastDayOfTheMonth);
-    sumExpenses=expenseManager.balanceForThePreviousMonth(integerFirstDayOfTheMonth, integerLastDayOfTheMonth);
      differenceBetweenIncomeAndExpenses=sumInocmes-sumExpenses;
     cout<<endl<<endl<<"SALDO KONTA W POPRZEDNIM MIESIACU WYNOSI: "<<differenceBetweenIncomeAndExpenses<<endl;
      system ("pause");

@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Users>
-<user1>1|ewa|kwiec|123|222|</user1>
-<user2>2|ola|rok|321|333|</user2>
+<USER>
+<USERID>1</USERID>
+<LOGIN>123</LOGIN>
+<PASSWORD>321</PASSWORD>
+<NAME>ewa</NAME>
+<SURNAME>kwiec</SURNAME>
+</USER>
+<USER>
+<USERID>2</USERID>
+<LOGIN>2</LOGIN>
+<PASSWORD>2</PASSWORD>
+<NAME>2</NAME>
+<SURNAME>2</SURNAME>
+</USER>
 </Users>

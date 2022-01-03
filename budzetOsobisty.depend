@@ -180,7 +180,7 @@
 	<algorithm>
 	"AuxiliartMethods.h"
 
-1641242793 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\filewithincomes.h
+1641243194 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\filewithincomes.h
 	<iostream>
 	<vector>
 	<algorithm>
@@ -207,7 +207,7 @@
 	<iostream>
 	"Income.h"
 
-1638132966 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\filewithexpenses.h
+1641243357 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\filewithexpenses.h
 	<iostream>
 	<vector>
 	"Expense.h"
@@ -281,4 +281,7 @@
 
 1638132966 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\user.cpp
 	"User.h"
+
+1641243194 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\filewithincomes.cpp
+	"FileWithIncomes.h"
 

@@ -1,11 +1,6 @@
 #include "FileWithExpenses.h"
 
 bool FileWithExpenses::saveExpenseToFile(Expense expense) {
-
-    string userNumber="user"+AuxiliartMethods::conversionIntForString(expense.getUserId());
-    string expenseIdNumber="Expense"+AuxiliartMethods::conversionIntForString(expense.getId());
-    string lineWithData="";
-    lineWithData=replaceIncomeDataForDataLinesSeparatedByVerticalLines(expense);
     CMarkup xml;
     bool fileExists = xml.Load( EXPENSES_FILE_NAME );
 
@@ -16,41 +11,50 @@ bool FileWithExpenses::saveExpenseToFile(Expense expense) {
 
     xml.FindElem();
     xml.IntoElem();
-    if (!xml.FindElem(userNumber)) {
-        xml.AddElem(userNumber);
-    }
+    xml.AddElem("Expense");
     xml.IntoElem();
+    xml.AddElem("expenseId",AuxiliartMethods::conversionIntForString(expense.getId()));
+    xml.AddElem("userId",AuxiliartMethods::conversionIntForString(expense.getUserId()));
+    xml.AddElem("date",AuxiliartMethods::conversionIntForString (expense.getDate()));
+    xml.AddElem("item", expense.getIncomeCategory());
+    xml.AddElem("amount",AuxiliartMethods::conversionDoubleForString(expense.getValue()) );
 
-    xml.AddElem(expenseIdNumber, lineWithData);
     xml.OutOfElem();
     xml.Save(EXPENSES_FILE_NAME);
     return true;
+
 }
-string FileWithExpenses::replaceIncomeDataForDataLinesSeparatedByVerticalLines(Expense expense) {
-    string lineWithData="";
-    lineWithData+=AuxiliartMethods::conversionIntForString(expense.getUserId())+"|";
-    lineWithData+=AuxiliartMethods::conversionIntForString(expense.getId())+"|";
-    lineWithData+=AuxiliartMethods::conversionIntForString(expense.getDate())+"|";
-    lineWithData+=expense.getIncomeCategory()+"|";
-    lineWithData+=AuxiliartMethods::conversionDoubleForString(expense.getValue())+"|";
-    return lineWithData;
-}
+
 vector<Expense> FileWithExpenses::loadExpensesFromFile(int userId) {
     CMarkup xml;
     vector<Expense> expenses;
     Expense expense;
-    string u= "user"+AuxiliartMethods::conversionIntForString(userId);
 
-    bool fileExists = xml.Load( EXPENSES_FILE_NAME );
+    bool fileExists = xml.Load(EXPENSES_FILE_NAME);
     xml.FindElem();
     xml.IntoElem();
-    xml.FindElem(u);
-    xml.IntoElem();
-    while (xml.FindElem()) {
-        MCD_STR dataFromTheFile = xml.GetData();
-        expense=downloadUserData(dataFromTheFile);
+     while (xml.FindElem("Expense")) {
+
+        xml.IntoElem();
+        xml.FindElem("userId");
+        if (atoi(xml.GetData().c_str())== userId){
+        xml.FindElem("expenseId");
+        expense.setId( atoi(xml.GetData().c_str()));
+        xml.FindElem("userId");
+        expense.setUserId( atoi(xml.GetData().c_str()));
+        xml.FindElem("date");
+        expense.setDate(atoi(xml.GetData().c_str()));
+        xml.FindElem("item");
+        expense.setIncomeCategory(xml.GetData());
+        xml.FindElem("amount");
+        expense.setValue(AuxiliartMethods::conversionStringForDouble(xml.GetData()));
         expenses.push_back(expense);
-    }
+
+        }
+        xml.OutOfElem();
+
+     }
+
     xml.OutOfElem();
     return  expenses;
 }

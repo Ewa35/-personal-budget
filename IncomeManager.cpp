@@ -82,7 +82,7 @@ void IncomeManager :: loadIncomesFromFile(int userId) {
 
 }
 
-void IncomeManager  :: balanceForTheCurrentMonth(int integerFirstDayOfTheMonth, int integerLastDayOfTheMonth) {
+double IncomeManager  :: balanceForTheCurrentMonth(int integerFirstDayOfTheMonth, int integerLastDayOfTheMonth) {
 
     double totalIncome=0;
     int numberOfHits=0;
@@ -101,16 +101,16 @@ void IncomeManager  :: balanceForTheCurrentMonth(int integerFirstDayOfTheMonth, 
     else {
         cout<<endl<<"Calkowita watrosc dochodow w bierzacym miesiacu:   "<< totalIncome<<endl;
     }
-
+    return totalIncome;
 }
 
 
 void IncomeManager  ::displayIncomeData (Income income) {
     cout<<endl<<"  kategoria dochodu:  "<< income.getIncomeCategory()<<"  data:  "<< OperationsOnDates::changeTheDateFormat(income.getDate())<<"  watrosc dochodu:  "<< income.getValue();
 }
-void IncomeManager  :: balanceForThePreviousMonth(int integerFirstDayOfTheMonth, int integerLastDayOfTheMonth) {
+double IncomeManager  :: balanceForThePreviousMonth(int integerFirstDayOfTheMonth, int integerLastDayOfTheMonth) {
 
-    double totalIncome=0;
+   double totalIncome=0;
     int numberOfHits=0;
 
     for (vector <Income> :: iterator itr = incomes.begin(); itr != incomes.end(); ++itr) {
@@ -125,10 +125,11 @@ void IncomeManager  :: balanceForThePreviousMonth(int integerFirstDayOfTheMonth,
     else {
         cout<<endl<<"Calkowita watrosc dochodow w poprzednim miesiacu:   "<< totalIncome<<endl;
     }
+    return totalIncome;
 
 }
 
-void IncomeManager  ::incomeBalanceForTheSelectedPeriod(int startingDate, int endDate) {
+double IncomeManager  ::incomeBalanceForTheSelectedPeriod(int startingDate, int endDate) {
 
     int  numberOfHits=0;
     double totalIncome=0;
@@ -146,5 +147,8 @@ void IncomeManager  ::incomeBalanceForTheSelectedPeriod(int startingDate, int en
         cout<<endl<<"Calkowita wartosc dochodow: "<< totalIncome<<endl;
     }
 
-
+return totalIncome;
 }
+
+
+

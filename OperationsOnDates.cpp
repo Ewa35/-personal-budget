@@ -18,7 +18,7 @@ bool OperationsOnDates::checkTheCorrectnessOfTheDate(string date) {
     conversionCharONInt( date,   day,   month,  year);
     conversionCharONInt(  currentDate,  currentDay,  currentMonth,  currentYear);
     if (year>=2000 && year<=currentYear) {
-        if (month>=1 && month<=currentMonth) {
+        if (month>=1 && month<=currentMonth|| currentYear>year) {
             daysInAMonth=numberDaysOfTheMonth( month,  year);
             if (day>=1 && day<= daysInAMonth) {
                 return true;

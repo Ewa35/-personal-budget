@@ -91,7 +91,8 @@ void ExpenseManager ::loadExpensesFromFile(int userId) {
     expenses=fileWithExpenses.loadExpensesFromFile(userId);
     sort( expenses.begin(), expenses.end(), before() );
 }
-void ExpenseManager  :: balanceForTheCurrentMonth(int integerFirstDayOfTheMonth, int integerLastDayOfTheMonth) {
+double ExpenseManager  :: balanceForTheCurrentMonth(int integerFirstDayOfTheMonth, int integerLastDayOfTheMonth) {
+
 
     double totalExpense=0;
     int numberOfHits=0;
@@ -108,14 +109,14 @@ void ExpenseManager  :: balanceForTheCurrentMonth(int integerFirstDayOfTheMonth,
     else {
         cout<<endl<<"Calkowita watrosc wydatkow w bierzacym miesiacu:   "<< totalExpense<<endl;
     }
-    system("pause");
+    return totalExpense;
 }
 void ExpenseManager ::displayExpenseData (Expense expense) {
     cout<<endl<<"  kategoria wydatku:  "<< expense.getIncomeCategory()<<"  data:  "<< OperationsOnDates::changeTheDateFormat(expense.getDate())<<"  watrosc wydatku:  "<< expense.getValue();
 }
-void ExpenseManager  :: balanceForThePreviousMonth(int integerFirstDayOfTheMonth, int integerLastDayOfTheMonth) {
+double ExpenseManager  :: balanceForThePreviousMonth(int integerFirstDayOfTheMonth, int integerLastDayOfTheMonth) {
 
-    double totalExpense=0;
+     double totalExpense=0;
     int numberOfHits=0;
 
     for (vector <Expense> :: iterator itr = expenses.begin(); itr != expenses.end(); ++itr) {
@@ -131,11 +132,12 @@ void ExpenseManager  :: balanceForThePreviousMonth(int integerFirstDayOfTheMonth
         cout<<endl<<"Calkowita watrosc wydatkow w poprzednim miesiacu:   "<< totalExpense<<endl;
     }
 
-    system("pause");
-}
-void ExpenseManager  ::expenseBalanceForTheSelectedPeriod(int startingDate, int endDate) {
 
-    int  numberOfHits=0;
+    return totalExpense;
+}
+double ExpenseManager  ::expenseBalanceForTheSelectedPeriod(int startingDate, int endDate) {
+
+     int  numberOfHits=0;
     double totalExpense=0;
 
     for (vector <Expense> :: iterator itr = expenses.begin(); itr != expenses.end(); ++itr) {
@@ -152,5 +154,7 @@ void ExpenseManager  ::expenseBalanceForTheSelectedPeriod(int startingDate, int 
         cout<<endl<<"Calkowita watrosc wydatkow: "<< totalExpense<<endl;
     }
 
-    system("pause");
+
+    return totalExpense;
 }
+

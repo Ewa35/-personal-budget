@@ -152,7 +152,7 @@
 	<cstdlib>
 	<string>
 
-1638132966 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\budgetmanager.cpp
+1641245884 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\budgetmanager.cpp
 	"BudgetManager.h"
 
 1638132966 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\budgetmanager.h
@@ -161,7 +161,7 @@
 	"IncomeManager.h"
 	"ExpenseManager.h"
 
-1638132966 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\incomemanager.h
+1641245170 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\incomemanager.h
 	<iostream>
 	<vector>
 	<algorithm>
@@ -194,7 +194,7 @@
 	<string>
 	<afx.h>
 
-1638132966 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\expensemanager.h
+1641245170 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\expensemanager.h
 	<iostream>
 	<vector>
 	<algorithm>
@@ -217,16 +217,16 @@
 1598874170 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\expense.cpp
 	"Expense.h"
 
-1638132966 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\expensemanager.cpp
+1641245170 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\expensemanager.cpp
 	"ExpenseManager.h"
 
 1641243497 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\filewithexpenses.cpp
 	"FileWithExpenses.h"
 
-1641243730 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\filewithusers.cpp
+1641243975 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\filewithusers.cpp
 	"FileWithUsers.h"
 
-1641243730 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\filewithusers.h
+1641243975 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\filewithusers.h
 	<iostream>
 	<sstream>
 	<fstream>
@@ -241,7 +241,7 @@
 1598874170 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\income.cpp
 	"Income.h"
 
-1638132966 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\incomemanager.cpp
+1641245170 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\incomemanager.cpp
 	"IncomeManager.h"
 
 1638132966 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\main.cpp
@@ -270,13 +270,13 @@
 	<windows.h>
 	<mbstring.h>
 
-1638132966 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\operationsondates.cpp
+1641245170 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\operationsondates.cpp
 	"OperationsOnDates.h"
 
 1638132966 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\personalbudget.cpp
 	"PersonalBudget.h"
 
-1638132966 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\usermanager.cpp
+1641243975 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\usermanager.cpp
 	"UserManager.h"
 
 1638132966 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\user.cpp

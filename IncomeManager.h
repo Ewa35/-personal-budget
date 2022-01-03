@@ -30,9 +30,9 @@ public:
     };
     void addIncome(int userId);
     void loadIncomesFromFile(int userId);
-    void balanceForTheCurrentMonth(int integerFirstDayOfTheMonth, int integerLastDayOfTheMonth);
-    void  balanceForThePreviousMonth(int integerFirstDayOfTheMonth, int integerLastDayOfTheMonth);
-    void incomeBalanceForTheSelectedPeriod(int startingDate, int endDate);
+    double balanceForTheCurrentMonth(int integerFirstDayOfTheMonth, int integerLastDayOfTheMonth);
+    double  balanceForThePreviousMonth(int integerFirstDayOfTheMonth, int integerLastDayOfTheMonth);
+    double incomeBalanceForTheSelectedPeriod(int startingDate, int endDate);
 
 
     struct before {

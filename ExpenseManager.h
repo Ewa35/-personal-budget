@@ -26,9 +26,9 @@ public:
     void addExpense(int userId);
     void wypisz();
     void loadExpensesFromFile(int userId);
-    void  balanceForTheCurrentMonth(int integerFirstDayOfTheMonth, int integerLastDayOfTheMonth);
-    void balanceForThePreviousMonth(int integerFirstDayOfTheMonth, int integerLastDayOfTheMonth);
-    void expenseBalanceForTheSelectedPeriod(int startingDate, int endDate);
+    double  balanceForTheCurrentMonth(int integerFirstDayOfTheMonth, int integerLastDayOfTheMonth);
+    double balanceForThePreviousMonth(int integerFirstDayOfTheMonth, int integerLastDayOfTheMonth);
+    double expenseBalanceForTheSelectedPeriod(int startingDate, int endDate);
     struct before {
         inline bool operator() ( Expense& struct1,  Expense& struct2) {
             return (struct1.getDate() < struct2.getDate());

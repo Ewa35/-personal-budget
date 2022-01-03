@@ -1,9 +1,6 @@
 #include "FileWithUsers.h"
 
 void FileWithUsers:: addUsersToFile(User user) {
-    string lineWithData="";
-    string numberUser="user"+ AuxiliartMethods::conversionIntForString(user.getId());
-    lineWithData=replaceUserDataForDataLinesSeparatedByVerticalLines(user);
     CMarkup xml;
 
     bool fileExists = xml.Load( USER_FILE_NAME );
@@ -13,20 +10,27 @@ void FileWithUsers:: addUsersToFile(User user) {
     }
     xml.FindElem();
     xml.IntoElem();
-    xml.AddElem( numberUser, lineWithData );
+
+    xml.AddElem("USER");
+
+    xml.IntoElem();
+    xml.AddElem("USERID",AuxiliartMethods::conversionIntForString(user.getId()));
+
+    xml.AddElem("LOGIN", user.getLogin());
+
+    xml.AddElem("PASSWORD", user.getPassword());
+
+    xml.AddElem("NAME", user.getName());
+
+    xml.AddElem("SURNAME", user.getLastName());
+
+    xml.OutOfElem();
+
     xml.Save(USER_FILE_NAME);
 
 }
 
-string FileWithUsers::replaceUserDataForDataLinesSeparatedByVerticalLines(User user) {
-    string lineWithData="";
-    lineWithData+=AuxiliartMethods:: conversionIntForString(user.getId())+"|";
-    lineWithData+=user.getName()+"|";
-    lineWithData+=user.getLastName()+"|";
-    lineWithData+=user.getLogin()+"|";
-    lineWithData+=user.getPassword()+"|";
-    return lineWithData;
-}
+
 vector<User> FileWithUsers::loadUsersFromFile() {
     CMarkup xml;
     vector<User> users;
@@ -34,57 +38,52 @@ vector<User> FileWithUsers::loadUsersFromFile() {
     bool fileExists = xml.Load( USER_FILE_NAME );
     xml.FindElem();
     xml.IntoElem();
-    while (xml.FindElem()) {
+
+    while (xml.FindElem("USER")) {
+
+        xml.IntoElem();
+        xml.FindElem("USERID");
         MCD_STR dataFromTheFile = xml.GetData();
-        user=downloadUserData(dataFromTheFile);
+        user.setId(atoi(dataFromTheFile.c_str()));
+        xml.FindElem("LOGIN");
+        dataFromTheFile = xml.GetData();
+        user.setLogin(dataFromTheFile);
+        xml.FindElem("PASSWORD");
+        dataFromTheFile = xml.GetData();
+        user.setPassword(dataFromTheFile);
+        xml.FindElem("NAME");
+        dataFromTheFile = xml.GetData();
+        user.setName(dataFromTheFile);
+        xml.FindElem("SURNAME");
+        dataFromTheFile = xml.GetData();
+        user.setLastName(dataFromTheFile);
         users.push_back(user);
+
+        xml.OutOfElem();
     }
     xml.OutOfElem();
+
     return users;
+
 }
 
-User FileWithUsers:: downloadUserData(string dataFromTheFile) {
-    User user;
-    string singleData = "";
-    int numberSingleData = 1;
 
-    for (int markPosition = 0; markPosition < dataFromTheFile.length(); markPosition++) {
-        if (dataFromTheFile[markPosition] != '|') {
-            singleData += dataFromTheFile[markPosition];
-        } else {
-            switch(numberSingleData) {
-            case 1:
-                user.setId( atoi(singleData.c_str()));
-                break;
-            case 2:
-                user.setName(singleData);
-                break;
-            case 3:
-                user.setLastName(singleData);
-                break;
-            case 4:
-                user.setLogin(singleData);
-                break;
-            case 5:
-                user.setPassword(singleData);
-                break;
-            }
-            singleData = "";
-            numberSingleData++;
-        }
-    }
-    return user;
-}
-void FileWithUsers::saveTheNewPasswordInAFile(string lineWithData, int loggedUserId) {
-    User user;
-    string numberUser= "user"+AuxiliartMethods::conversionIntForString(loggedUserId);
-    CMarkup xml;
+
+void FileWithUsers::saveTheNewPasswordInAFile(string oldPassword, string newPassword) {
+   CMarkup xml;
     bool fileExists = xml.Load( USER_FILE_NAME );
     xml.FindElem();
     xml.IntoElem();
-    xml.FindElem(numberUser);
-    xml.SetData(lineWithData);
+    while (xml.FindElem("USER")){
+    xml.IntoElem();
+    xml.FindElem( "PASSWORD");
+    if (xml.GetData()==oldPassword){
+    xml.SetData(newPassword);
+
+    }
     xml.OutOfElem();
+    }
     xml.Save(USER_FILE_NAME);
 }
+
 

@@ -207,7 +207,7 @@
 	<iostream>
 	"Income.h"
 
-1641243357 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\filewithexpenses.h
+1641243497 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\filewithexpenses.h
 	<iostream>
 	<vector>
 	"Expense.h"
@@ -220,13 +220,13 @@
 1638132966 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\expensemanager.cpp
 	"ExpenseManager.h"
 
-1638132966 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\filewithexpenses.cpp
+1641243497 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\filewithexpenses.cpp
 	"FileWithExpenses.h"
 
-1638132966 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\filewithusers.cpp
+1641243730 source:c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\filewithusers.cpp
 	"FileWithUsers.h"
 
-1638132966 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\filewithusers.h
+1641243730 c:\users\ewa\desktop\c++_obiektowy\budzetosobisty — kopia\filewithusers.h
 	<iostream>
 	<sstream>
 	<fstream>

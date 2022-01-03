@@ -11,7 +11,6 @@ using namespace std;
 class FileWithExpenses {
 
     const string EXPENSES_FILE_NAME;
-    string replaceIncomeDataForDataLinesSeparatedByVerticalLines(Expense expense );
     Expense  downloadUserData(string dataFromTheFile);
 
 public:

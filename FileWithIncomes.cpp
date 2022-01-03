@@ -2,10 +2,6 @@
 
 bool FileWithIncomes::saveIncomeToFile(Income income) {
 
-    string userNumber="user"+AuxiliartMethods::conversionIntForString(income.getUserId());
-    string incomeIdNumber="Income"+AuxiliartMethods::conversionIntForString(income.getId());
-    string lineWithData="";
-    lineWithData=replaceIncomeDataForDataLinesSeparatedByVerticalLines(income);
     CMarkup xml;
     bool fileExists = xml.Load( INCOMES_FILE_NAME );
 
@@ -16,40 +12,49 @@ bool FileWithIncomes::saveIncomeToFile(Income income) {
 
     xml.FindElem();
     xml.IntoElem();
-    if (!xml.FindElem(userNumber)) {
-        xml.AddElem(userNumber);
-    }
+    xml.AddElem("Income");
     xml.IntoElem();
-    xml.AddElem(incomeIdNumber, lineWithData);
+    xml.AddElem("incomeId",AuxiliartMethods::conversionIntForString(income.getId()));
+    xml.AddElem("userId",AuxiliartMethods::conversionIntForString(income.getUserId()));
+    xml.AddElem("date",AuxiliartMethods::conversionIntForString (income.getDate()));
+    xml.AddElem("item", income.getIncomeCategory());
+    xml.AddElem("amount",AuxiliartMethods::conversionDoubleForString(income.getValue()) );
+
     xml.OutOfElem();
     xml.Save(INCOMES_FILE_NAME);
     return true;
 }
-string FileWithIncomes::replaceIncomeDataForDataLinesSeparatedByVerticalLines(Income income) {
-    string lineWithData="";
-    lineWithData+=AuxiliartMethods::conversionIntForString(income.getUserId())+"|";
-    lineWithData+=AuxiliartMethods::conversionIntForString(income.getId())+"|";
-    lineWithData+=AuxiliartMethods::conversionIntForString(income.getDate())+"|";
-    lineWithData+=income.getIncomeCategory()+"|";
-    lineWithData+=AuxiliartMethods::conversionDoubleForString(income.getValue())+"|";
-    return lineWithData;
-}
+
 vector<Income> FileWithIncomes::loadIncomesFromFile(int userId) {
     CMarkup xml;
     vector<Income> incomes;
     Income income;
-    string userNumber= "user"+AuxiliartMethods::conversionIntForString(userId);
 
     bool fileExists = xml.Load( INCOMES_FILE_NAME );
     xml.FindElem();
     xml.IntoElem();
-    xml.FindElem(userNumber);
-    xml.IntoElem();
-    while (xml.FindElem()) {
-        MCD_STR dataFromTheFile = xml.GetData();
-        income=downloadUserData(dataFromTheFile);
+     while (xml.FindElem("Income")) {
+
+        xml.IntoElem();
+        xml.FindElem("userId");
+        if (atoi(xml.GetData().c_str())== userId){
+        xml.FindElem("IncomeId");
+        income.setId( atoi(xml.GetData().c_str()));
+        xml.FindElem("userId");
+        income.setUserId( atoi(xml.GetData().c_str()));
+        xml.FindElem("date");
+        income.setDate(atoi(xml.GetData().c_str()));
+        xml.FindElem("item");
+        income.setIncomeCategory(xml.GetData());
+        xml.FindElem("amount");
+        income.setValue(AuxiliartMethods::conversionStringForDouble(xml.GetData()));
         incomes.push_back(income);
-    }
+
+        }
+        xml.OutOfElem();
+
+     }
+
     xml.OutOfElem();
     return  incomes;
 }

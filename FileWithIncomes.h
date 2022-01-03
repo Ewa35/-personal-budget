@@ -13,7 +13,6 @@ class FileWithIncomes {
 
 
     const string INCOMES_FILE_NAME;
-    string replaceIncomeDataForDataLinesSeparatedByVerticalLines(Income income );
     Income  downloadUserData(string dataFromTheFile);
 
 public:

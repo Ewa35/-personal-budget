@@ -81,23 +81,20 @@ void UserManager ::loginUser() {
 
 }
 void UserManager ::changePasswordOfLoggedInUser() {
-    string  newPassword = "";
+    string  newPassword = "", oldPassword="";
     string lineWithData="";
     cout << "Podaj nowe haslo: ";
     newPassword = AuxiliartMethods::loadLine();
 
     for (vector <User>::iterator itr = users.begin(); itr != users.end(); itr++) {
         if (itr->getId() == loggedUserId) {
+            oldPassword=itr->getPassword();
             itr->setPassword(newPassword);
             cout << "Haslo zostalo zmienione." << endl << endl;
             system("pause");
-            lineWithData=fileWithUsers.replaceUserDataForDataLinesSeparatedByVerticalLines(*itr);
         }
     }
-
-
-
-    fileWithUsers.saveTheNewPasswordInAFile(lineWithData,loggedUserId);
+    fileWithUsers.saveTheNewPasswordInAFile(oldPassword,newPassword);
 }
 bool UserManager :: checkIfTheUserIsLoggedIn() {
     if (loggedUserId>0)
